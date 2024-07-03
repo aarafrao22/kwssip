@@ -13,26 +13,14 @@ class _HomeActivityState extends State<HomeActivity> {
     return Scaffold(
       body: Align(
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: const AssetImage('asset/images/kwssip_new.png'),
-              opacity: 1,
-              fit: BoxFit.cover,
-              colorFilter: ColorFilter.mode(
-                Colors.white.withOpacity(0.06), // Adjust opacity value here
-                BlendMode.dstATop, // Choose blend mode as per your requirement
-              ),
-            ),
-          ),
+          color: Colors.white,
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: Column(
                   children: [
-                    const SizedBox(
-                      height: 48,
-                    ),
+                    const Spacer(),
                     const Text(
                       'Welcome',
                       style: TextStyle(
@@ -47,22 +35,29 @@ class _HomeActivityState extends State<HomeActivity> {
                           fontSize: 32,
                           fontWeight: FontWeight.w600),
                     ),
-                    const SizedBox(
-                      height: 48,
-                    ),
+                    const Spacer(),
                     Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          // Center vertically
                           children: [
-                            Image.asset(
-                              'asset/images/img_1.png',
+                            Container(
+                              decoration: const BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(24)),
+                                  color: Colors.grey),
+                              color: Colors.grey,
                               height: 66,
+                              child: Image.asset(
+                                'asset/images/img_1.png',
+                              ),
                             ),
-                            Image.asset(
-                              'asset/images/img_1.png',
+                            Container(
+                              color: Colors.grey,
                               height: 66,
+                              child: Image.asset(
+                                'asset/images/img_1.png',
+                              ),
                             ),
                           ],
                         ),
@@ -87,24 +82,9 @@ class _HomeActivityState extends State<HomeActivity> {
                         const SizedBox(
                           height: 58,
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor:
-                                const Color(0xff007B9A), // foreground
-                          ),
-                          onPressed: () {
-                            //Shift to Home
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: (context) => const HomeActivity()));
-                          },
-                          child: const Text('Take Pictures of Work Site'),
-                        )
                       ],
                     ),
-                    const SizedBox(
-                      height: 14,
-                    ),
+                    Spacer(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       // Center vertically
@@ -116,9 +96,7 @@ class _HomeActivityState extends State<HomeActivity> {
                         stepButton('5'),
                       ],
                     ),
-                    const SizedBox(
-                      height: 24,
-                    ),
+                    Spacer(),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
@@ -150,22 +128,22 @@ class _HomeActivityState extends State<HomeActivity> {
                                         // mainAxisAlignment: MainAxisAlignment.center,
                                         mainAxisSize: MainAxisSize.min,
                                         children: <Widget>[
-                                          Spacer(),
-                                          Text(
+                                          const Spacer(),
+                                          const Text(
                                             'Give Ahmed a rating!',
                                             style: TextStyle(
                                                 fontSize: 20,
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold),
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
                                             children: [
-                                              Spacer(),
+                                              const Spacer(),
                                               reactionImage(
                                                   'asset/images/react_1.png'),
                                               Spacer(),
@@ -186,8 +164,8 @@ class _HomeActivityState extends State<HomeActivity> {
                                               Spacer(),
                                             ],
                                           ),
-                                          Spacer(),
-                                          Text(
+                                          const Spacer(),
+                                          const Text(
                                             'Leave a comment*',
                                             style: TextStyle(
                                                 fontSize: 20,
@@ -203,7 +181,7 @@ class _HomeActivityState extends State<HomeActivity> {
                                                   BorderRadius.circular(24),
                                               color: Colors.white,
                                             ),
-                                            child: TextField(
+                                            child: const TextField(
                                               maxLines: null,
                                               // Allows the TextField to expand vertically based on content
                                               decoration: InputDecoration(
@@ -217,11 +195,11 @@ class _HomeActivityState extends State<HomeActivity> {
                                               ),
                                             ),
                                           ),
-                                          Spacer(),
+                                          const Spacer(),
                                           ElevatedButton(
                                             style: ElevatedButton.styleFrom(
                                               foregroundColor: Colors.white,
-                                              backgroundColor: Color(
+                                              backgroundColor: const Color(
                                                   0xff007B9A), // foreground
                                             ),
                                             onPressed: () {
@@ -233,7 +211,6 @@ class _HomeActivityState extends State<HomeActivity> {
                                             },
                                             child: const Text('Upload'),
                                           ),
-                                          Spacer(),
                                         ],
                                       ),
                                     ),
@@ -245,7 +222,8 @@ class _HomeActivityState extends State<HomeActivity> {
                         }
                       },
                       child: const Text('Upload Pictures'),
-                    )
+                    ),
+                    Spacer(),
                   ],
                 ),
               ),
@@ -260,15 +238,19 @@ class _HomeActivityState extends State<HomeActivity> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: const CircleBorder(),
+        elevation: 0,
         foregroundColor: Colors.white,
-        backgroundColor: const Color(0xff007B9A), // foreground
+        backgroundColor: const Color(0xfff0f0f0), // foreground
       ),
       onPressed: () {
         //Shift to Home
         // Navigator.of(context).push(MaterialPageRoute(
         //     builder: (context) => const HomeActivity()));
       },
-      child: Text(s),
+      child: Text(
+        s,
+        style: const TextStyle(color: Colors.blueGrey),
+      ),
     );
   }
 

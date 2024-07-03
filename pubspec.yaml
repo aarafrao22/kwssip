@@ -68,6 +68,8 @@ flutter:
     - asset/images/react_3.png
     - asset/images/react_4.png
     - asset/images/react_5.png
+    - asset/images/blue.png
+    - asset/images/white.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
